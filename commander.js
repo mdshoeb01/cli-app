@@ -2,36 +2,38 @@
 
 'use strict';
 
-const program=require('commander'),
-      exec=require('child_process').exec,
-      pkg=require('./package.json');
+const program = require('commander');
 
-      let answers={};
-let startprogram=(options)=>{
-  const fs=require('fs');
-  let questions=[
-    "Name",
-    "Age"
+
+const exec = require('child_process').exec;
+
+
+const pkg = require('./package.json');
+
+const answers = {};
+const startprogram = (options) => {
+  const fs = require('fs');
+  const questions = [
+    'Name',
+    'Age',
   ];
-  let count=0;
+  let count = 0;
   process.stdout.write(`Enter ${questions[count]} :`);
-  process.stdin.on('data',(data)=>{
-    answers[questions[count]]=data.toString().trim();
-    count++;
-    if(count<questions.length){
+  process.stdin.on('data', (data) => {
+    answers[questions[count]] = data.toString().trim();
+    count += 1;
+    if (count < questions.length) {
       process.stdout.write(`Enter  ${questions[count]} :`);
-    }
-    else{
+    } else {
       console.log(answers);
-      let file=answers.Name;
-      fs.appendFile(file+".txt", JSON.stringify(answers), (err)=>{
-        if(err) throw err;
-
-      })
+      const file = answers.Name;
+      fs.appendFile(`${file}.txt`, JSON.stringify(answers), (err) => {
+        if (err) throw err;
+      });
       process.stdin.destroy();
     }
-  })
-}
+  });
+};
 
 program
   .version(pkg.version)
