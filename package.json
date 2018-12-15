@@ -1,7 +1,7 @@
 {
   "name": "05-mohammed-commandlinelog",
   "version": "1.0.0",
-  "description": "",
+  "description": "lets create cli-app using stin, stdout and commander",
   "main": "program.js",
   "scripts": {
     "mountblue": "node -e 'require(\"./stdin-out\").init()'",
@@ -22,5 +22,9 @@
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-jsx-a11y": "^6.1.2",
     "eslint-plugin-react": "^7.11.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@gitlab.com:mountblue/dec-2018-js-backend/05-mohammed-cliapp.git"
   }
 }

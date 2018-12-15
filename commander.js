@@ -1,18 +1,17 @@
 #!/usr/bin/env node
 
-'use strict';
 
 const program = require('commander');
 
+const fs = require('fs');
 
-const exec = require('child_process').exec;
+// const exec = require('child_process').exec;
 
 
 const pkg = require('./package.json');
 
 const answers = {};
-const startprogram = (options) => {
-  const fs = require('fs');
+const startprogram = () => {
   const questions = [
     'Name',
     'Age',
@@ -25,7 +24,7 @@ const startprogram = (options) => {
     if (count < questions.length) {
       process.stdout.write(`Enter  ${questions[count]} :`);
     } else {
-      console.log(answers);
+      // console.log(answers);
       const file = answers.Name;
       fs.appendFile(`${file}.txt`, JSON.stringify(answers), (err) => {
         if (err) throw err;
