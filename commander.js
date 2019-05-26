@@ -24,7 +24,7 @@ const startprogram = () => {
     if (count < questions.length) {
       process.stdout.write(`Enter  ${questions[count]} :`);
     } else {
-      // console.log(answers);
+      // console.dir(answers);
       const file = answers.Name;
       fs.appendFile(`${file}.txt`, JSON.stringify(answers), (err) => {
         if (err) throw err;
